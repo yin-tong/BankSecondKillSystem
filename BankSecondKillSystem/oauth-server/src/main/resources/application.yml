@@ -1,0 +1,28 @@
+server:
+  port: 8005
+
+spring:
+
+  profiles:
+    active: test
+
+  application:
+    name: oauth-server
+
+  cloud:
+    nacos:
+      discovery:
+        ip: xxx
+
+  # redis
+  redis:
+    host: xxx
+    port: 6379
+    timeout: 5000
+
+# 暴露所有端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

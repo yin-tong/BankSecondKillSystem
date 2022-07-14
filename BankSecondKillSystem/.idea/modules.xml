@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BankSecondKillSystem.iml" filepath="$PROJECT_DIR$/BankSecondKillSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul/BankSecondKillSystem-zuul-9527.iml" filepath="$PROJECT_DIR$/zuul/BankSecondKillSystem-zuul-9527.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-server/account-server.iml" filepath="$PROJECT_DIR$/account-server/account-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bsks-api/bsks-api.iml" filepath="$PROJECT_DIR$/bsks-api/bsks-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/first-filter-server/first-filter-server.iml" filepath="$PROJECT_DIR$/first-filter-server/first-filter-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kill-server/kill-server.iml" filepath="$PROJECT_DIR$/kill-server/kill-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth-server/oauth-server.iml" filepath="$PROJECT_DIR$/oauth-server/oauth-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-server/order-server.iml" filepath="$PROJECT_DIR$/order-server/order-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-server/product-server.iml" filepath="$PROJECT_DIR$/product-server/product-server.iml" />
+    </modules>
+  </component>
+</project>

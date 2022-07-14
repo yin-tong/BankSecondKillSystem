@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsks.mapper.RepayRecordMapper">
+
+    <select id="getLoanTimes" resultType="Integer">
+        select count(*) from repay_record
+        where identity_id = #{identityId}
+        and true_repay_time > repay_time
+        and repay_amount > #{money}
+        and datediff(true_repay_time,repay_time) > #{payoffDays}
+        and repay_time between date_sub(now(),interval #{years} year) and now();
+    </select>
+
+</mapper>

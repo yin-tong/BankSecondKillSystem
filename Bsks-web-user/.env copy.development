@@ -1,0 +1,8 @@
+# just a flag
+ENV = 'development'
+
+# base api
+VUE_APP_BASE_API = '/dev-api'
+
+#跨越请求mock.js虚拟处来的数据，需要有个跨域端口
+VUE_APP_API_SERVISE_PATH = 'http://10.210.122.80:9528/mock'

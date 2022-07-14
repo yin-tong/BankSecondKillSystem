@@ -1,0 +1,91 @@
+server:
+  port: 8006
+
+#--------------------是否开启token鉴权--------------------------
+JWTHasRole: true
+
+#--------------------是否开启接口防刷--------------------------
+AccessLimiter: false
+
+spring:
+
+  profiles:
+    active: test
+
+  application:
+    name: order-server
+
+  cloud:
+    nacos:
+      discovery:
+        ip: xxx
+
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://xxxx:3306/sxfcds2103374?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: sxfcds2103374
+    password: SX_fcds2103374
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    # druid
+    initialSize: 5   #初始化时建立物理连接的个数
+    minIdle: 5       #最小连接池数量
+    maxActive: 20    #最大连接池数量
+    maxWait: 60000   #获取连接时最大等待时间
+
+  # redis
+  redis:
+    host: xxx
+    port: 6379
+    timeout: 5000
+
+  # 日期格式
+  jackson:
+    default-property-inclusion: ALWAYS
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+# feign
+feign:
+  # 客户端调用超时设置
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 60000
+  # 使feign支持sentinel
+  sentinel:
+    enabled: true
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: com/bsks/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1  # 配置逻辑删除
+      logic-not-delete-value: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#------------------------rocketmq----------------
+rocketmq:
+  name-server: xxx:9876
+  producer:
+    group: order-server
+
+mq:
+  # 消费mq中订单信息: 生成订单
+  order:
+    topic: order-topic
+    group-name: kill-server
+  # 生产mq中产品信息：回退产品库存
+  product:
+    topic: product-topic
+    tag: 回退库存

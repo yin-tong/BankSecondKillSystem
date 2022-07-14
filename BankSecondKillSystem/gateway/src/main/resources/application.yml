@@ -1,0 +1,86 @@
+server:
+  port: 10003
+
+#--------------------是否开启token验证--------------------------
+jwtIsOpen: false
+
+spring:
+  profiles:
+    active: test
+
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      discovery:
+        ip: xxx
+
+    gateway:
+      # 允许全局跨域
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true  # 允许携带认证信息
+            allowed-origins: "*"     # 允许跨域的源(网站域名/ip)，设置*为全部
+            allowed-headers: "*"     # 允许跨域请求里的head字段，设置*为全部
+            allowed-methods: "*"# 允许跨域的method， 默认为GET和OPTIONS，设置*为全部
+
+      # 开启自动识别nacos服务
+      discovery:
+        locator:
+          lower-case-service-id: true
+
+      # 路由
+      routes:
+        # 账户服务
+        - id: account
+          uri: lb://account-server
+          predicates:
+            - Path=/account/**
+          filters:
+            - StripPrefix=1
+        # 初筛服务
+        - id: first-filter
+          uri: lb://first-filter-server
+          predicates:
+            - Path=/firstFilter/**
+          filters:
+            - StripPrefix=1
+        # 秒杀服务
+        - id: kill
+          uri: lb://kill-server
+          predicates:
+            - Path=/killServer/**
+          filters:
+            - StripPrefix=1
+        # 订单服务
+        - id: order
+          uri: lb://order-server
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        # 产品服务
+        - id: product
+          uri: lb://product-server
+          predicates:
+            - Path=/product/**
+          filters:
+            - StripPrefix=1
+
+logging:
+  level:
+    org.springframework:cloud.gateway: debug
+
+# feign
+feign:
+  # 客户端调用超时设置
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 600000
+  # 使feign支持sentinel
+  sentinel:
+    enabled: true

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: first-filter-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: xxx:8848
+      config:
+        server-addr: xxx:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: 6c880dd3-2c3a-43ed-84e2-01b8c1f423d3

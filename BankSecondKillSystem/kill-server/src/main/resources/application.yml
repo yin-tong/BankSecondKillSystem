@@ -1,0 +1,80 @@
+server:
+  port: 8004
+
+#--------------------是否开启token鉴权--------------------------
+JWTHasRole: true
+
+#--------------------是否开启接口防刷--------------------------
+AccessLimiter: true
+
+#--------------------spring-----------------------
+spring:
+  profiles:
+    active: test
+
+  application:
+    name: kill-server
+
+  cloud:
+    nacos:
+      discovery:
+        ip: xxx
+
+  # 日期格式
+  jackson:
+    default-property-inclusion: ALWAYS
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://xxx:3306/sxfcds2103374?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: sxfcds2103374
+    password: SX_fcds2103374
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    # druid
+    initialSize: 5   #初始化时建立物理连接的个数
+    minIdle: 5       #最小连接池数量
+    maxActive: 20    #最大连接池数量
+    maxWait: 60000   #获取连接时最大等待时间
+
+  # redis
+  redis:
+    host: xxx
+    port: 6379
+    timeout: 5000
+
+# feign调用超时时间配置
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 100000
+        readTimeout: 600000
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#------------------------rocketmq----------------
+rocketmq:
+  name-server: xxx:9876
+  # 生产mq中订单信息
+  producer:
+    group: kill-server
+
+mq:
+  # 生产mq中订单信息
+  order:
+    topic: order-topic
+    tag: 预订单
+  # 消费mq中订单信息
+  kill-record:
+    topic: kill-record-topic
+    group-name: order-server

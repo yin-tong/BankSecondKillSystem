@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bsks-api" />
+        <module name="product-server" />
+        <module name="first-filter-server" />
+        <module name="order-server" />
+        <module name="kill-server" />
+        <module name="gateway" />
+        <module name="demo1" />
+        <module name="oauth-server" />
+        <module name="account-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-server" target="1.8" />
+      <module name="BankSecondKillSystem" target="1.5" />
+      <module name="BankSecondKillSystem-zuul-9527" target="8" />
+      <module name="bsks-api" target="8" />
+      <module name="canal-server" target="1.8" />
+      <module name="config" target="1.8" />
+      <module name="consumer" target="8" />
+      <module name="demo" target="1.8" />
+      <module name="demo1" target="1.8" />
+      <module name="doc-server" target="8" />
+      <module name="eureka" target="1.5" />
+      <module name="first-filter-server" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="kill-server" target="1.8" />
+      <module name="message-server" target="1.8" />
+      <module name="notice-server" target="8" />
+      <module name="oauth-server" target="1.8" />
+      <module name="oauth2" target="8" />
+      <module name="order-server" target="1.8" />
+      <module name="pay-server" target="8" />
+      <module name="product-server" target="1.8" />
+      <module name="provider" target="8" />
+      <module name="second-kill-server" target="8" />
+      <module name="short-message-server-6000" target="8" />
+      <module name="zuul" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
